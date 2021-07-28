@@ -23,6 +23,8 @@
       "react/jsx-filename-extension": ["off"],
       "react/prop-types": ["off"],
       "no-return-assign": ["off"],
-      "no-undef": ["off"]
+      "no-undef": ["off"],
+      "semi": [1, "always"],
+      "no-console":["off"]
     }
 }
