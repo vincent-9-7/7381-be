@@ -1,0 +1,28 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+      "max-len": ["error", {"code": 120}],
+      "prefer-promise-reject-errors": ["off"],
+      "react/jsx-filename-extension": ["off"],
+      "react/prop-types": ["off"],
+      "no-return-assign": ["off"],
+      "no-undef": ["off"]
+    }
+}
