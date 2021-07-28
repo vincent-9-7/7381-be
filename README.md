@@ -1,4 +1,4 @@
-# npm install
-# npm install -g nodemon
-# nodemon src/index.js
-http://localhost:8000/
+# Step1: npm install
+# Step2: npm install -g nodemon
+# Step3: nodemon src/index.js
+# Step4: http://localhost:8000/
