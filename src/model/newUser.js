@@ -1,7 +1,7 @@
 const mongosse = require('mongoose');
 const validateEmail = function (email) {
     const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return mailFormat.test(email)
+    return mailFormat.test(email);
 };
 
 const userSchema = new mongosse.Schema(
@@ -23,7 +23,7 @@ const userSchema = new mongosse.Schema(
             required: true,
             min: 0,
         }
-})
+});
 
 const userTable = mongosse.model('user-table', userSchema);
 module.exports = userTable;
