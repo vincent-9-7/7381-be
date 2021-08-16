@@ -1,5 +1,5 @@
 const Router = require("koa-router"); 
-const buyerController = require ('../../controllers/api/v1/buyerController');
+const buyerController = require ('../../controllers/api/v1/buyer_controller');
 const router = new Router();
 
 router.get("/", async (ctx) => {
