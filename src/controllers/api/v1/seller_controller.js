@@ -1,13 +1,14 @@
-const BuyerTable = require('../../../model/buyer');
+const SellerTable = require('../../../model/seller');
 
-//Get all buyers
+
+//Get all sellers
 exports.index = async (ctx) => {
-    const getAllBuyerResult = await BuyerTable.find({});
-      if (getAllBuyerResult.length > 0) {
-        ctx.body = getAllBuyerResult;
+    const getAllSellerResult = await SellerTable.find({});
+    if (getAllSellerResult.length > 0) {
+        ctx.body = getAllSellerResult;
     } else {
         ctx.status = 404;
-        ctx.body = { errors: "There are no buyers!"};
+        ctx.body = { errors: "There are no sellers!"};
     }
  };
 
@@ -15,18 +16,18 @@ exports.index = async (ctx) => {
 exports.show = async (ctx) => {
     const { id } = ctx.params;
     console.log(id);
-    const buyerInfo = await BuyerTable.findById({_id:id});
-    if(!buyerInfo) { 
-        ctx.body = `Can't find the buyer by ID: ${id}`; 
+    const sellerInfo = await SellerTable.findById({_id:id});
+    if(!sellerInfo) { 
+        ctx.body = `Can't find the seller by ID: ${id}`; 
     } else {
-        ctx.body = buyerInfo;
+        ctx.body = sellerInfo;
     }
   };
   
   //POST
   exports.store = async (ctx) => {
     const {body} = ctx.request;  
-    const user = new BuyerTable(body);
+    const user = new SellerTable(body);
     await user
     .save()
     .then(user => {
@@ -42,7 +43,7 @@ exports.show = async (ctx) => {
   exports.updateId = async (ctx) => {
     const {body} = ctx.request;
     const {id} = ctx.params;
-    BuyerTable.findByIdAndUpdate({_id:id},body,function(err,result) {
+    SellerTable.findByIdAndUpdate({_id:id},body,function(err,result) {
       if (err) {
         ctx.body = {
           message: `ERROR by ${id}` 
@@ -58,7 +59,7 @@ exports.show = async (ctx) => {
     // delete
   // exports.deleteId = async (ctx) => {
   //   const {id} = ctx.params;
-  //   BuyerTable.findById({_id:id},function (err, result) {
+  //   SellerTable.findById({_id:id},function (err, result) {
   //     if(err) {
   //       ctx.body = {
   //           message: `ERROR by ${id}` 

@@ -4,7 +4,7 @@ const validateEmail = function (email) {
     return mailFormat.test(email);
 };
 
-const BuyerSchema = new mongosse.Schema(
+const SellerSchema = new mongosse.Schema(
     {
         name: {
             firstName: {
@@ -39,5 +39,5 @@ const BuyerSchema = new mongosse.Schema(
         timestamps: true,
 });
 
-const BuyerTable = mongosse.model('buyer-table', BuyerSchema);
-module.exports = BuyerTable;
+const SellerTable = mongosse.model('seller-table', SellerSchema);
+module.exports = SellerTable;
