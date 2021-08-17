@@ -1,6 +1,6 @@
 // const cors = require('cors');
 // const config = require('../../src/config/app');
-const apiRouter = require('../routes/v1/');
+const apiRouter = require('../routes/v1');
 const fs = require('fs');
 
 
@@ -17,7 +17,7 @@ module.exports = async (app) => {
         const apiRouter = require('../routes/v1/' + filename);
         app.use(apiRouter.routes());
     }
-})
+});
  
     return app;
 };
