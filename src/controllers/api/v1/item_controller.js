@@ -16,11 +16,11 @@ exports.index = async (ctx) => {
 exports.show = async (ctx) => {
     const { id } = ctx.params;
     console.log(id);
-    const buyerInfo = await ItemTable.findById({_id:id}).populate({path:"sellerDetail",model:SellerTable});
-    if(!buyerInfo) { 
-        ctx.body = `Can't find the buyer by ID: ${id}`; 
+    const itemInfo = await ItemTable.findById({_id:id}).populate({path:"sellerDetail",model:SellerTable});
+    if(!itemInfo) { 
+        ctx.body = `Can't find the item by ID: ${id}`; 
     } else {
-        ctx.body = buyerInfo;
+        ctx.body = itemInfo;
     }
   };
   
