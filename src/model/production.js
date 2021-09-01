@@ -43,10 +43,14 @@ const ProductionSchema = new mongoose.Schema(
                 max: 9999,
             }
         }, 
-        sellerDetail:{
+        sellerDetail: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "seller-Table",
         },
+        image: {
+                data: Buffer,
+                contentType: String
+            },
     // -------------------------------------//
         // currentAddress:{
         //     lat: {
