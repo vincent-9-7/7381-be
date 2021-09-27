@@ -22,6 +22,11 @@ const ItemSchema = new mongoose.Schema(
             min: 0,
             required: true,
         },
+        size:{
+            type: Number,
+            min: 0,
+            required: true,
+        },
         description: {
             type: String,
         },
@@ -30,8 +35,15 @@ const ItemSchema = new mongoose.Schema(
                 type: String,
                 required: true
             },
+            address2:{
+                type: String,
+                // required: true
+            },
             suburb: {
                 type: String,
+            },
+            city: {
+                type:String,
             },
             state: {
                 type: String,
@@ -47,6 +59,23 @@ const ItemSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "seller-Table",
         },
+        imageAddress:{
+            type:Array,
+        },
+        recipient:{
+            type: String,
+            required: true,
+        },
+        bankName:{
+            type: String,
+            required: true,
+        },
+        BSB:{
+            type: Number,
+        },
+        account:{
+            type: Number,
+        }
     // -------------------------------------//
         // currentAddress:{
         //     lat: {

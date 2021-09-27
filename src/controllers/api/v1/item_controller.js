@@ -27,6 +27,7 @@ exports.show = async (ctx) => {
   //POST
   exports.store = async (ctx) => {
     const {body} = ctx.request;  
+    console.log(body);
     const item = new ItemTable(body);
     await item
     .save()
