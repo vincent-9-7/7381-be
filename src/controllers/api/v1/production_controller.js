@@ -26,7 +26,11 @@ exports.show = async (ctx) => {
   
   //POST
   exports.store = async (ctx) => {
-    const {body} = ctx.request;  
+    const {body} = ctx.request; 
+    // console.log(body);
+    const {quantity} = body;
+    // console.log(quantity);
+    body.postQuantity = quantity;  
     const item = new ProductionTable(body);
     await item
     .save()
