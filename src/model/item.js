@@ -10,7 +10,7 @@ const ItemSchema = new mongoose.Schema(
         category: {
             type: String,
             required: true,
-            enum: ['fruit','vegetable'],
+            enum: ['Fruit','Vegetable'],
         },
         price: {
             type: Number,
@@ -30,31 +30,29 @@ const ItemSchema = new mongoose.Schema(
         description: {
             type: String,
         },
-        address:{
-            address1:{
-                type: String,
-                required: true
-            },
-            address2:{
-                type: String,
-                // required: true
-            },
-            suburb: {
-                type: String,
-            },
-            city: {
-                type:String,
-            },
-            state: {
-                type: String,
-                required: true,
-            },
-            postcode: {
-                type: Number,
-                min: 1000,
-                max: 9999,
-            }
-        }, 
+        address1:{
+            type: String,
+            required: true
+        },
+        address2:{
+            type: String,
+            // required: true
+        },
+        suburb: {
+            type: String,
+        },
+        city: {
+            type:String,
+        },
+        state: {
+            type: String,
+            required: true,
+        },
+        postcode: {
+            type: Number,
+            min: 1000,
+            max: 9999,
+        },
         sellerDetail:{
             type: mongoose.Schema.Types.ObjectId,
             ref: "seller-Table",
