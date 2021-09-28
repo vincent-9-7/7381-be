@@ -6,19 +6,23 @@ const validateEmail = function (email) {
 
 const BuyerSchema = new mongosse.Schema(
     {
-        name: {
-            firstName: {
-                type: String,
-                required: true,
-                trim: true,
-                default: 'First Name'
-            },
-            lastName: {
-                type: String,
-                required: true,
-                trim: true,
-                default: 'Last Name'
-            }
+        // name: {
+        //     firstName: {
+        //         type: String,
+        //         required: true,
+        //         trim: true,
+        //         default: 'First Name'
+        //     },
+        //     lastName: {
+        //         type: String,
+        //         required: true,
+        //         trim: true,
+        //         default: 'Last Name'
+        //     }
+        // },
+        username: {
+            type: String,
+            required: true,
         },
         email: {
             type: String,
@@ -34,9 +38,27 @@ const BuyerSchema = new mongosse.Schema(
             minlength: 6,
             maxlength: 60,
         },
-        
-},{
-        timestamps: true,
+        address1: {
+            type: String,
+            required: true,
+        },
+        address2: {
+            type: String,
+        },
+        city: {
+            type: String,
+        },
+        state: {
+            type: String,
+        },
+        postcode: {
+            type: Number,
+            max: 9999,
+            min: 0,
+        }
+
+    }, {
+    timestamps: true,
 });
 
 const BuyerTable = mongosse.model('buyer-table', BuyerSchema);
