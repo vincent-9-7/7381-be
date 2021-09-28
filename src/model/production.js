@@ -10,14 +10,22 @@ const ProductionSchema = new mongoose.Schema(
         category: {
             type: String,
             required: true,
-            enum: ['fruit','vegetable'],
+            enum: ['Fruit','Vegetable'],
         },
         price: {
             type: Number,
             min: 0,
             required: true,
         },
+        postQuantity: {
+            type: Number,
+        },
         quantity: {
+            type: Number,
+            min: 0,
+            required: true,
+        },
+        size:{
             type: Number,
             min: 0,
             required: true,
@@ -25,32 +33,50 @@ const ProductionSchema = new mongoose.Schema(
         description: {
             type: String,
         },
-        address:{
-            address1:{
-                type: String,
-                required: true
-            },
-            suburb: {
-                type: String,
-            },
-            state: {
-                type: String,
-                required: true,
-            },
-            postcode: {
-                type: Number,
-                min: 1000,
-                max: 9999,
-            }
-        }, 
-        sellerDetail: {
+        address1:{
+            type: String,
+            required: true
+        },
+        address2:{
+            type: String,
+            // required: true
+        },
+        suburb: {
+            type: String,
+        },
+        city: {
+            type:String,
+        },
+        state: {
+            type: String,
+            required: true,
+        },
+        postcode: {
+            type: Number,
+            min: 1000,
+            max: 9999,
+        },
+        sellerDetail:{
             type: mongoose.Schema.Types.ObjectId,
             ref: "seller-Table",
         },
-        image: {
-                data: Buffer,
-                contentType: String
-            },
+        imageAddress:{
+            type:Array,
+        },
+        recipient:{
+            type: String,
+            required: true,
+        },
+        bankName:{
+            type: String,
+            required: true,
+        },
+        BSB:{
+            type: Number,
+        },
+        account:{
+            type: Number,
+        }
     // -------------------------------------//
         // currentAddress:{
         //     lat: {

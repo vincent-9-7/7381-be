@@ -17,6 +17,9 @@ const ItemSchema = new mongoose.Schema(
             min: 0,
             required: true,
         },
+        postQuantity: {
+            type: Number,
+        },
         quantity: {
             type: Number,
             min: 0,
