@@ -2,6 +2,7 @@ const OrderTable = require('../../../model/order');
 const ItemTable = require('../../../model/item');
 const SellerTable = require('../../../model/seller');
 const BuyerTable = require('../../../model/buyer');
+const ProductionTable = require('../../../model/production');
 
 //Get all items
 exports.index = async (ctx) => {
@@ -30,7 +31,7 @@ exports.show = async (ctx) => {
   
   //POST
   exports.store = async (ctx) => {
-    const {body} = ctx.request;  
+    const {body} = ctx.request;
     const item = new OrderTable(body);
     await item
     .save()
@@ -41,6 +42,32 @@ exports.show = async (ctx) => {
         console.log(err);
         ctx.body=`Error! ${err}`;
     });
+    const {orderList} = body;
+    console.log("length is " + orderList.length);
+    for(const order of orderList) {
+      console.log(Object.keys(order));
+      console.log(Object.values(order));
+      
+      const id = Object.keys(order);
+      const type = Object.values(order)[0][0];
+      const num = -Object.values(order)[0][1];
+      const table = type === "grade-B" ? ItemTable :ProductionTable;
+      console.log(table);
+      table.findByIdAndUpdate({ _id: id },
+        {$inc: { quantity: num}},
+        { returnOriginal: false },function(err,result) {
+          if (err) {
+            ctx.body = {
+              message: `ERROR by ${id}` 
+            };
+            ctx.status = 404;         
+            return;
+          }
+          console.log(result);
+        });
+        ctx.body = `更新成功 by id: ${id}` ; 
+    }
+
   };
 
   //update

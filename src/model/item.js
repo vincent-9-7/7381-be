@@ -12,6 +12,10 @@ const ItemSchema = new mongoose.Schema(
             required: true,
             enum: ['Fruit','Vegetable'],
         },
+        condition: {
+            type:String,
+            default: "B-grade"
+        },
         price: {
             type: Number,
             min: 0,
