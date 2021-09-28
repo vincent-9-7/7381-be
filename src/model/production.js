@@ -17,6 +17,10 @@ const ProductionSchema = new mongoose.Schema(
             min: 0,
             required: true,
         },
+        condition: {
+            type:String,
+            default: "Processed"
+        },
         postQuantity: {
             type: Number,
         },
