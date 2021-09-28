@@ -51,7 +51,7 @@ exports.show = async (ctx) => {
       const id = Object.keys(order);
       const type = Object.values(order)[0][0];
       const num = -Object.values(order)[0][1];
-      const table = type === "grade-B" ? ItemTable :ProductionTable;
+      const table = type === "B-grade" ? ItemTable :ProductionTable;
       console.log(table);
       table.findByIdAndUpdate({ _id: id },
         {$inc: { quantity: num}},
