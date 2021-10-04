@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-const stripe = require("stripe")("sk_test_51JaCcrC7rcFCd2f0fkptU2A0FPOePJoU7tqdyO78P6IJ2WJawd4V362nMaL7UMGJ99jcyK67KhQyvfC2Rr8LQ8V700nls9bzGF");
+const stripe = require("stripe")(process.env.REACT_APP_STEIPE_KEY);
 
 const calculateOrderAmount = (items,price) => {
   let totalprice = price * 100; 
