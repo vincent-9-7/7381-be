@@ -20,6 +20,18 @@ const OrderSchema = new mongoose.Schema(
             type:Array, 
             required: true,
         },
+        firstName: {
+            type: String,
+            required: true,
+            trim: true,
+            default: 'First Name'
+        },
+        lastName: {
+            type: String,
+            required: true,
+            trim: true,
+            default: 'Last Name'
+        },
         // total price = quantity * price 
         // name: {
         //     firstName: {

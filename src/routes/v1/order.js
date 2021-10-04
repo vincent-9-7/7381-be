@@ -1,6 +1,9 @@
 const orderController = require ('../../controllers/api/v1/order_controller');
+const paymentController = require ('../../controllers/api/v1/payment_controller');
+
 const router = require("./");
 
+router.post("/pay", paymentController.paynow);
 router.get("/orders",orderController.index); //postman 里面 get localhost：8000/orders，可看到回复结果
 router.get("/order/:id",orderController.show); //postman 里面 get localhost：8000/orders/2131，可看到回复结果
 router.post("/order",orderController.store); //postman 里面 get localhost：8000/orders，可看到回复结果
