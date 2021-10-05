@@ -55,7 +55,7 @@ exports.show = async (ctx) => {
       // console.log(table);
       table.findByIdAndUpdate({ _id: id },
         {$inc: { quantity: num}},
-        { returnOriginal: false },function(err) {
+        { returnOriginal: false },function(err,result) {
           if (err) {
             ctx.body = {
               message: `ERROR by ${id}` 
@@ -63,7 +63,7 @@ exports.show = async (ctx) => {
             ctx.status = 404;         
             return;
           }
-          // console.log(result);
+          console.log(result);
         });
         // ctx.body = `更新成功 by id: ${id}` ; 
         // ctx.body = orderList;
