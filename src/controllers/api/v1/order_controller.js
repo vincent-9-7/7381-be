@@ -45,17 +45,17 @@ exports.show = async (ctx) => {
     const {orderList} = body;
     console.log("length is " + orderList.length);
     for(const order of orderList) {
-      console.log(Object.keys(order));
-      console.log(Object.values(order));
+      // console.log(Object.keys(order));
+      // console.log(Object.values(order));
       
       const id = Object.keys(order);
       const type = Object.values(order)[0][0];
       const num = -Object.values(order)[0][1];
       const table = type === "B-grade" ? ItemTable :ProductionTable;
-      console.log(table);
+      // console.log(table);
       table.findByIdAndUpdate({ _id: id },
         {$inc: { quantity: num}},
-        { returnOriginal: false },function(err,result) {
+        { returnOriginal: false },function(err) {
           if (err) {
             ctx.body = {
               message: `ERROR by ${id}` 
@@ -63,9 +63,10 @@ exports.show = async (ctx) => {
             ctx.status = 404;         
             return;
           }
-          console.log(result);
+          // console.log(result);
         });
-        ctx.body = `更新成功 by id: ${id}` ; 
+        // ctx.body = `更新成功 by id: ${id}` ; 
+        // ctx.body = orderList;
     }
 
   };
