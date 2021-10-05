@@ -1,4 +1,5 @@
 // const ItemTable = require('../../../model/item');
+const mongoose = require('mongoose');
 const ProductionTable = require('../../../model/production');
 
 exports.getAllFruits = async (ctx) => {
@@ -35,3 +36,20 @@ exports.getAllFruits = async (ctx) => {
             ctx.body = result;
           }
         };
+
+        exports.getById = async (ctx) => { 
+          const {id} = ctx.params;
+          console.log(id);
+          const result= await ProductionTable.aggregate([
+            { $unionWith: { coll: "item-tables", 
+          }},
+            {$match: {_id: mongoose.Types.ObjectId(id)}
+          },
+          ]);
+            if(result.length<=0){
+              ctx.body ="No items",
+              ctx.status=404;
+            }else{
+              ctx.body = result;
+            }
+          };
