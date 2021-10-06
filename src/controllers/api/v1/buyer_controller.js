@@ -94,13 +94,14 @@ exports.login = async ctx => {
     const result = await bcrypt.compareSync(password, buyerInfo[0].password);
     if (result) {
       ctx.status = 200;
-      const { _id } = buyerInfo[0];
+      const { _id, username } = buyerInfo[0];
       // const payload = {email: email,id:_id};
       // const token = jwt.sign(payload, secretOrKey.secretOrKey, {expiresIn: 3600});
       ctx.body = {
         success: true,
         // token: "Bearer " + token, 
-        ObjectId: _id
+        ObjectId: _id,
+        username: username
       };
     } else {
       ctx.status = 400;
