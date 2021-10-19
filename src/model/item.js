@@ -80,6 +80,12 @@ const ItemSchema = new mongoose.Schema(
         },
         account:{
             type: Number,
+        },
+        latitude:{
+            type: Number,
+        },
+        longitude:{
+            type: Number,
         }
     // -------------------------------------//
         // currentAddress:{

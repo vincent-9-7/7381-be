@@ -27,7 +27,7 @@ exports.show = async (ctx) => {
   //POST
   exports.store = async (ctx) => {
     const {body} = ctx.request;  
-    // console.log(body);
+    console.log(body);
     const {quantity} = body;
     // console.log(quantity);
     body.postQuantity = quantity;
