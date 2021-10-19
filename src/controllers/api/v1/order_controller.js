@@ -45,9 +45,6 @@ exports.show = async (ctx) => {
     const {orderList} = body;
     console.log("length is " + orderList.length);
     for(const order of orderList) {
-      // console.log(Object.keys(order));
-      // console.log(Object.values(order));
-      
       const id = Object.keys(order);
       const type = Object.values(order)[0][0];
       const num = -Object.values(order)[0][1];
