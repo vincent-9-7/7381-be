@@ -4,6 +4,7 @@ const ProductionTable = require('../../../model/production');
 
 exports.getAllFruits = async (ctx) => {
     // const {name} = ctx.query;  
+    
     const result= await ProductionTable.aggregate([
       { $unionWith: { coll: "item-tables", 
     //   pipeline:[ { $project: { title: 1, _id: 1 } } ]
