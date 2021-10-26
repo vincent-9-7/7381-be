@@ -2,8 +2,8 @@
 https://bmarket.ml/
 
 # How to run these files?
-Step1: npm install
-Step2: npm install -g nodemon
+Step1: npm install <br />
+Step2: npm install -g nodemon <br />
 Step3: nodemon src/index.js
 
 # Folder Structure:
