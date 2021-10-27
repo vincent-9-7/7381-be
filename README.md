@@ -15,4 +15,4 @@ Step3: nodemon src/index.js
 6. src/utils: encryptor and input validator.
 7. src/api: Website's api url.
 8. /.eslintrc: Eslint coding style.
-9. /.env: Environment variable to save API key.
+9. /.env: Environment variable to save API key. (We didn't upload it for safty)
