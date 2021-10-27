@@ -1,6 +1,6 @@
 
 const loader = require('./loaders');
-const bodyParser = require('koa-bodyparser'); //接受post请求 koa-bodyparser
+const bodyParser = require('koa-bodyparser'); 
 const Koa = require("koa");
 const cors = require('koa-cors');
 const app = new Koa();
